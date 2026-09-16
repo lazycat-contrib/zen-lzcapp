@@ -6,11 +6,10 @@ application:
   upstreams:
     - location: /
       backend: http://zen:8080/
-
 services:
   zen:
     # upstream: ghcr.io/sheshbabu/zen/zen:1.5.0
-    image: ghcr.io/sheshbabu/zen/zen:1.5.0
+    image: registry.lazycat.cloud/czyt/sheshbabu/zen/zen:25b0075678f125f2
     environment:
       - DATA_FOLDER=/data
       - IMAGES_FOLDER=/images

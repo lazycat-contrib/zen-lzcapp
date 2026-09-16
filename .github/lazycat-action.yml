@@ -1,0 +1,39 @@
+version: 1
+
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: .lazycat-build/zen.lpk
+  target_arch: amd64
+
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: zen
+
+build:
+  run_buildscript: false
+
+images:
+  - id: zen
+    target: service
+    service: zen
+    source: ghcr.io/sheshbabu/zen/zen
+    channel: stable
+    sort: semver
+    tag_regex: '^v?\d+\.\d+\.\d+$'
+    delivery:
+      mode: lazycat
+
+stores:
+  official:
+    enabled: true
+    skip_if_version_exists: true
+    changelog_locales: [zh, en]
+  private:
+    enabled: true
+    name: Zen
+    summary: "极简笔记应用"

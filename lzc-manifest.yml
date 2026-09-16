@@ -1,0 +1,20 @@
+application:
+  subdomain: zen
+  background_task: true
+  public_path:
+    - /
+  upstreams:
+    - location: /
+      backend: http://zen:8080/
+
+services:
+  zen:
+    # upstream: ghcr.io/sheshbabu/zen/zen:1.5.0
+    image: ghcr.io/sheshbabu/zen/zen:1.5.0
+    environment:
+      - DATA_FOLDER=/data
+      - IMAGES_FOLDER=/images
+      - PORT=8080
+    binds:
+      - /lzcapp/var/data:/data
+      - /lzcapp/var/images:/images

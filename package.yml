@@ -1,0 +1,14 @@
+package: cloud.lazycat.app.zen
+version: 0.1.0
+name: Zen
+description: "Minimal Notes App"
+min_os_version: "1.5.0"
+homepage: https://github.com/sheshbabu/zen
+author: sheshbabu
+locales:
+  zh:
+    name: Zen
+    description: "极简笔记应用"
+  en:
+    name: Zen
+    description: "Minimal Notes App"
